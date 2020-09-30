@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 20px;">
-      <a class="navbar-brand" href="/">Cryptocurency</a>
+      <a class="navbar-brand" href="/">
+        <img src="./assets/logo.png" width="30" height="30" alt="" loading="lazy">
+      Penguin coins</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -18,6 +20,7 @@
             </li>
           </ul>
         </div>
+        <router-link to="/register" class="btn btn-lg btn-outline-light">Get Wallet</router-link>
     </nav>
     <router-view/>
   </div>

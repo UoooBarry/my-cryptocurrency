@@ -69,10 +69,10 @@ class Chain {
 
     for (const block of this.blockchain) {
       for (const transaction of block.transactions) {
-        if (transaction.getDetail().sender && transaction.isValid() === address) //If he is the sender
+        if (transaction.getDetail().sender === address && transaction.isValid()) //If he is the sender
           balance -= transaction.getDetail().amount;
         
-        if (transaction.getDetail().receiver && transaction.isValid() === address) //If he is the receiver
+        if (transaction.getDetail().receiver === address && transaction.isValid()) //If he is the receiver
           balance += transaction.getDetail().amount;
       }
     }

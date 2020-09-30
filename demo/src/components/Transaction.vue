@@ -1,8 +1,8 @@
 <template>
     <tr>
         <th scope="row">{{index}}</th>
-        <td class="hash"><p v-if="isSystemSent()">System</p>{{transaction.sender}}</td>
-        <td class='hash'>{{transaction.receiver}}</td>
+        <td class="hash"><p v-if="isSystemSent()">System</p> <router-link :to="senderWalletHref">{{transaction.sender}}</router-link></td>
+        <td class='hash'><router-link :to="receiverWalletHref">{{transaction.receiver}}</router-link></td>
         <td>
             {{transaction.amount}}
             <b v-if="isSystemSent()">
@@ -20,6 +20,12 @@
 export default ({
     name: 'Transaction',
     props: ['transaction', 'index'],
+    data(){
+        return{
+            senderWalletHref: `/wallet/${this.transaction.sender}`,
+            receiverWalletHref: `/wallet/${this.transaction.receiver}`
+        }        
+    },
     methods:{
         isSystemSent(){
             return this.transaction.sender === null;

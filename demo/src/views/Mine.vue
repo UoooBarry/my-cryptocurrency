@@ -5,7 +5,7 @@
             <label for="from">Your public key</label>
             <input type="text" class="form-control" id="from" v-model="sender_public" placeholder="Enter public key" required>
         </div>
-        <h3>This is not a real mine case, just for demo</h3>
+        <h3>This is not a real mining case, just for demo</h3>
         <button type="submit" class="btn btn-secondary btn-lg btn-block">Mine</button>
     </form>
     </div>
