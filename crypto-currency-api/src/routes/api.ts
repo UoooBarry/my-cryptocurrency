@@ -53,7 +53,7 @@ router.get('/blocks/:index/transactions', (req: Request, res: Response) => {
     transaction.validate = transaction.isValid();
   }
   res.json(
-    transactions
+    {transactions}
   );
 })
 

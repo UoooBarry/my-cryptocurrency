@@ -30,12 +30,17 @@ class Chain {
   }
 
   minePendingTransactions(receiver: any) {
+    const reward = new Transaction(null, receiver, this.reward);
+    this.pendingTransactions.push(reward);
+
     let block = new Block(new Date(), this.pendingTransactions, this.obtainLatestBlock().hash);
     block.proofOfWork(this.difficulty);
-    this.blockchain.push(block);
+
 
     //Create reward transaction 
-    this.pendingTransactions = [new Transaction(null, receiver, this.reward)];
+    this.blockchain.push(block);
+
+    this.pendingTransactions = [];
   
     return true;
   }
@@ -64,10 +69,10 @@ class Chain {
 
     for (const block of this.blockchain) {
       for (const transaction of block.transactions) {
-        if (transaction.getDetail().sender === address) //If he is the sender
+        if (transaction.getDetail().sender && transaction.isValid() === address) //If he is the sender
           balance -= transaction.getDetail().amount;
         
-        if (transaction.getDetail().receiver === address) //If he is the receiver
+        if (transaction.getDetail().receiver && transaction.isValid() === address) //If he is the receiver
           balance += transaction.getDetail().amount;
       }
     }
