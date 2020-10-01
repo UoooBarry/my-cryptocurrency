@@ -1,6 +1,6 @@
 <template>
     <form  @submit.prevent="transfer">
-         <div class="form-group">
+        <div class="form-group">
             <label for="from">Your public key</label>
             <input type="text" class="form-control" id="from" v-model="sender_public" placeholder="Enter public key" required>
         </div>

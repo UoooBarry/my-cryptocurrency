@@ -1,22 +1,31 @@
 <template>
   <div class="container">
-    <h1>Block chain</h1>
-    <p>Each block contains mutiple transacations</p>
-    <Blocks @onBlockSeleted='onBlockSeleted'/>
+    <div class='content'>
+      <h1>Block chain</h1>
+      <p>Each block contains mutiple transacations</p>
+      <Blocks @onBlockSeleted='onBlockSeleted'/>
+    </div>
     <hr>
-    <h1>Transactions in this block</h1>
-    <Transacations :index='selectedIndex' :key='selectedIndex'/>
+    <div class='content'>
+      <h1>Transactions in this block</h1>
+      <Transacations :index='selectedIndex' :key='selectedIndex'/>
+    </div>
+    <hr>
+    <h1>Balance check</h1>
+    <BalanceCheck />
   </div>
 </template>
 
 <script>
 import Blocks from '@/components/blocks';
 import Transacations from '@/components/transactions';
+import BalanceCheck from '@/components/BalanceCheck';
 export default {
   name: 'Home',
   components: {
     Blocks,
-    Transacations
+    Transacations,
+    BalanceCheck
   },
   methods:{
     onBlockSeleted(index){

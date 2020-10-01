@@ -4,3 +4,8 @@
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
 /* Optional: show position indicator in red */
+
+.content{
+    min-height: 400px;
+    overflow-y: scroll;
+}

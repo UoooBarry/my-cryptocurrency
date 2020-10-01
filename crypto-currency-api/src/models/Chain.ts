@@ -56,10 +56,10 @@ class Chain {
         throw new Error('Transaction amount should be higher than 0');
     }
 
-  // Making sure that the amount sent is not greater than existing balance
-  if (this.getBalanceOfAddress(transaction.getDetail().sender) < transaction.getDetail().amount) {
-    throw new Error('Not enough balance');
-  }
+    // Making sure that the amount sent is not greater than existing balance
+    if (this.getBalanceOfAddress(transaction.getDetail().sender) < transaction.getDetail().amount) {
+      throw new Error('Not enough balance');
+    }
 
     this.pendingTransactions.push(transaction);
   }
